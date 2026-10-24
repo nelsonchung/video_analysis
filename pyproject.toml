@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "v9-videoqa"
+version = "1.0.0"
+description = "Offline CPU video quality analyzer for V9 recordings"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "opencv-python-headless>=4.8", "PyYAML>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+videoqa = "videoqa.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["videoqa*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint.per-file-ignores]
+# Input contracts consistently report invalid user configuration as ValueError.
+"videoqa/analyzers.py" = ["TRY004"]
+"videoqa/schemas.py" = ["TRY004"]
+# Reader.close() owns handles across streaming iterator calls.
+"videoqa/readers/core.py" = ["TRY004", "SIM115"]

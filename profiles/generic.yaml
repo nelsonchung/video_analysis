@@ -1,0 +1,15 @@
+# Generic thresholds are candidate detectors, not scene calibration.
+mode: generic
+calibrated: false
+max_events: 20
+fps:
+  tolerance_ratio: 0.05
+  gap_factor: 1.5
+  window_seconds: 1.0
+freeze:
+  difference_threshold: 0.5
+  min_seconds: 1.0
+green:
+  min_ratio: 0.2
+blur:
+  min_laplacian_variance: 40.0

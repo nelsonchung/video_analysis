@@ -1,0 +1,7 @@
+# Example only. Set calibrated:true after validating thresholds on YOUR scene.
+mode: reference
+calibrated: false
+freeze:
+  min_seconds: 2.0
+blur:
+  min_laplacian_variance: 40.0

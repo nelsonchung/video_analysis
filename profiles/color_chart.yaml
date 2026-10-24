@@ -1,0 +1,8 @@
+# Uniform neutral patch example. Select an actual chart ROI and measured RGB.
+# RGB distance is descriptive and is not DeltaE00 / calibrated colorimetry.
+mode: reference
+calibrated: false
+roi: [0, 0, 64, 64]
+color:
+  reference_rgb: [128, 128, 128]
+  max_rgb_distance: 30.0
